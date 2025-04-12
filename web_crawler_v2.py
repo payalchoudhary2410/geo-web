@@ -443,6 +443,6 @@ class WebsiteCrawler:
 
 # Example usage
 if __name__ == "__main__":
-    crawler = WebsiteCrawler("https://ribin.in", max_pages=5, use_selenium=True)
+    crawler = WebsiteCrawler("https://juspay.io", max_pages=5, use_selenium=True)
     results = crawler.crawl()
     print(json.dumps(results, indent=2))
