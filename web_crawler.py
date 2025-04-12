@@ -239,6 +239,7 @@ class WebsiteCrawler:
                 
             except Exception as e:
                 print(f"Error crawling {current_url}: {e}")
+                print("Error")
         
         # Finalize site metadata
         if self.site_metadata["pages_crawled"] > 0:

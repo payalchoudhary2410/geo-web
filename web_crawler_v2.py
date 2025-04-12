@@ -427,6 +427,7 @@ class WebsiteCrawler:
             self.site_metadata["avg_word_count"] = self.site_metadata["total_word_count"] / self.site_metadata["pages_crawled"]
             self.site_metadata["js_content_percentage"] = (self.site_metadata["js_rendered_pages"] / self.site_metadata["pages_crawled"]) * 100
         
+        print('Crawling completed.')
         return {
             "metadata": self.site_metadata,
             "pages": self.pages_data,
