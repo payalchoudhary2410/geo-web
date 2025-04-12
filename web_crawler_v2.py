@@ -427,12 +427,19 @@ class WebsiteCrawler:
             self.site_metadata["avg_word_count"] = self.site_metadata["total_word_count"] / self.site_metadata["pages_crawled"]
             self.site_metadata["js_content_percentage"] = (self.site_metadata["js_rendered_pages"] / self.site_metadata["pages_crawled"]) * 100
         
-        print('Crawling completed.')
-        return {
-            "metadata": self.site_metadata,
+        results = {
+             "metadata": self.site_metadata,
             "pages": self.pages_data,
             "structured_data": self.structured_data
         }
+        website_name = urlparse(self.start_url).netloc.replace('.', '_')
+        output_file = f"{website_name}_crawl_results_v2.json"
+        with open(output_file, "w") as f:
+            f.write(json.dumps(results, indent=2))
+        print(f"Results saved to {output_file}")
+        return results
+
+
 
 # Example usage
 if __name__ == "__main__":
